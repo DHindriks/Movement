@@ -15,12 +15,7 @@
 		
 		public function Move(e:Event) {
 			Location.normalize();
-			y -= Location.y;
-			
-			if (y >= 500 || 0 >= y) {
-				parent.removeChild(this);
-			}
-			
+			y -= Location.y;			
 			}
 			
 	}

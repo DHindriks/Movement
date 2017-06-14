@@ -69,10 +69,10 @@
 				Controller();
 				
 				if (Location.x < 0) {
-					Location.x = 0;
+					Location.x = 500;
 				}
 				if (Location.x > 500) {
-					Location.x = 500;
+					Location.x = 0;
 				}
 				if (Location.y < 0) {
 					Location.y = 0;

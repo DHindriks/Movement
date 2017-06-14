@@ -3,6 +3,7 @@
 	import flash.display.MovieClip;
 	import flash.events.*
 	import flash.ui.*;
+	import com.adobe.tvsdk.mediacore.ABRControlParameters;
 
 	public class PlayerTracks extends MovieClip {
 		var myTracks: MovieClip;
@@ -15,7 +16,7 @@
 		var Buttondown: Boolean;
 		var Buttonleft: Boolean;
 		var Buttonright: Boolean;
-
+		
 		public function PlayerTracks() {
 			// constructor code
 			addChild(myPlayerTurret);
@@ -59,10 +60,10 @@
 				Controller();
 				
 				if (Location.x < 0) {
-					Location.x = 0
+					Location.x = 500
 				}
 				if (Location.x > 500) {
-					Location.x = 500
+					Location.x = 0
 				}
 				if (Location.y < 0) {
 					Location.y = 0

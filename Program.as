@@ -1,16 +1,4 @@
-﻿/*
-Output should be:
-
-a = [4, 3]
-a.mag() = 5
-a.heading() = 0.6435011087932844 (radians)
-a.heading() = 36.86989764584402 (degrees)
-a.normalize() = [0.8, 0.6]
-b = [2, 1]
-a.add(b) = [2.8, 1.6]
-*/
-
-package  {
+﻿package  {
 	import flash.display.MovieClip;
 	import flash.events.*;
 	import flash.ui.*;
@@ -23,24 +11,24 @@ package  {
 		var myEnemyTracks:MovieClip = new EnemyTracks;
 		var myEnemyTurret:MovieClip = new EnemyTurret;
 		
-		var Playerbullets: Array = new Array;
-		var Enemybullets: Array = new Array;
+		var PBullets: Array = new Array;
+		var EBullets: Array = new Array;
+
+		
+		public var Pbullet:MovieClip;
+	
+		public var Ebullet:MovieClip;
 		
 		public function Program() {
 			var a:Vector2 = new Vector2(4, 3);
 			this.addChild(myPlayerTracks);
 			this.addChild(myEnemyTracks);
-			addEventListener(Event.ENTER_FRAME, Update);
+			//addEventListener(Event.ENTER_FRAME, Update);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
             stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
 		} // end of Program constructor
 		
-		public function Update() {
-        if (myPlayerTracks.hitTestObject(myPlayerTurret))
-			{
-			trace("Shot")
-			}
-}
+
 		
 		public function onKeyPress(e:KeyboardEvent) {
 			switch(e.keyCode)
@@ -109,25 +97,38 @@ package  {
 			
 			public function PlayerShoot() : void 
 			{
-				var Pbullet:PlayerBullet = new PlayerBullet(); 
+				Pbullet = new PlayerBullet(); 
       
 				Pbullet.x = myPlayerTracks.x; 
 				Pbullet.y = 430;
       
-				addChild(Pbullet); 
+				addChild(Pbullet);
+				PBullets.push(Pbullet)
 				
+				UpdateBullets();
 				}
 				
 			public function EnemyShoot() : void 
 			{
-				var Ebullet:EnemyBullet = new EnemyBullet(); 
+				Ebullet = new EnemyBullet(); 
       
 				Ebullet.x = myEnemyTracks.x; 
 				Ebullet.y = 70;
       
 				addChild(Ebullet); 
-				
+				EBullets.push(Ebullet)
+				UpdateBullets();
 				}
+				
+			public function UpdateBullets() {
+				if(60 <= PBullets.length) {
+					
+				}
+				
+				if(60 <= EBullets.length) {
+					
+				}
+			}
 
 	} // end of class
 }// end of package
